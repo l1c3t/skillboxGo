@@ -18,4 +18,12 @@ func main() {
 	fmt.Println("После смены:")
 	fmt.Println("a:", a)
 	fmt.Println("b:", b)
+
+	//замена без промежуточной переменной
+	a, b = b, a
+
+	fmt.Println("После смены без буфера:")
+	fmt.Println("a:", a)
+	fmt.Println("b:", b)
+
 }

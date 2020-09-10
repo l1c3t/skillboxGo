@@ -59,5 +59,4 @@ func main() {
 		overallHeight = growthSpeed*days - caterpillarAte*float32(night) + heigth
 	}
 	fmt.Printf("Для достижения высоты бамбука в %vсм необходимо %v дней", targetHeight, days)
-	//int(days) - int(days)%2
 }

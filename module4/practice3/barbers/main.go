@@ -36,7 +36,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("----------------------------")
 	fmt.Println()
-	fmt.Printf("%v уже нанятых брадобреев могут обслужить %v за %v дней\n", barberCount, mensForPeriod, period)
+	fmt.Printf("%v уже нанятые брадобреи могут обслужить %v мужчин за %v дней\n", barberCount, mensForPeriod, period)
 
 	fmt.Println()
 	fmt.Println("----------------------------")

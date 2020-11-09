@@ -47,7 +47,7 @@ outloop:
 		}
 	}
 
-	bills, change = lemonadeChange(bills)
+	change = lemonadeChange(bills)
 	fmt.Println("В кассе:")
 	fmt.Println(bills)
 	fmt.Println("Получится сдать сдачу:")
@@ -55,7 +55,7 @@ outloop:
 
 }
 
-func lemonadeChange(bills []int) ([]int, bool) {
+func lemonadeChange(bills []int) bool {
 	lastCash := bills[len(bills)-1] - 5
 	change := false
 
@@ -96,13 +96,6 @@ func lemonadeChange(bills []int) ([]int, bool) {
 			}
 		}
 	}
-	var newBills []int
-	for _, cash := range bills {
-		if cash != 0 {
-			newBills = append(newBills, cash)
-		}
 
-	}
-
-	return newBills, change
+	return change
 }

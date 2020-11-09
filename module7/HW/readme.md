@@ -1,4 +1,4 @@
-# Homework for unit6
+# Homework for unit7
 
 ## 1. Зеркальные билеты
 

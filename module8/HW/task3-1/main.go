@@ -56,7 +56,7 @@ outloop:
 }
 
 func lemonadeChange(bills []int) bool {
-	lastCash := bills[len(bills)-1] - 5
+
 	change := false
 
 	nominals := map[int]int{
@@ -64,37 +64,46 @@ func lemonadeChange(bills []int) bool {
 		10: 0,
 	}
 
-	for i := 1; i < (len(bills) - 1); i++ {
-
-		for _, cash := range bills[:i-1] {
-			if cash == 5 {
-				nominals[5]++
-			} else if cash == 10 {
-				nominals[10]++
-			}
+	for i := 0; i <= (len(bills) - 1); i++ {
+		if bills[i] == 5 {
+			nominals[5]++
+		} else if bills[i] == 10 {
+			nominals[10]++
 		}
+		fmt.Println(bills[:i+1])
+		fmt.Println(nominals)
 
-		switch lastCash {
-		case 0:
-			change = true
-		case 5:
-			if nominals[5] > 0 {
+		for j := 0; j <= i; j++ {
+			lastCash := bills[j] - 5
+
+			switch lastCash {
+			case 0:
 				change = true
-			}
-		case 10:
-			if nominals[5] > 1 {
-				change = true
-			} else if nominals[10] > 0 {
-				change = true
+			case 5:
+				if nominals[5] > 0 {
+					change = true
+					nominals[5]--
+				} else {
+					change = false
+				}
+			case 15:
+				if nominals[10] > 0 && nominals[5] > 0 {
+					change = true
+					nominals[5]--
+					nominals[10]--
+				} else if nominals[5] > 2 {
+					change = true
+					nominals[5] = -2
+				} else {
+					change = false
+				}
+			default:
+				change = false
+
 			}
 
-		case 15:
-			if nominals[5] > 2 {
-				change = true
-			} else if (nominals[10] > 1) && (nominals[5] > 0) {
-				change = true
-			}
 		}
+		fmt.Println(nominals)
 	}
 
 	return change

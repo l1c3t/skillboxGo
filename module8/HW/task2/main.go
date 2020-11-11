@@ -22,14 +22,14 @@ import (
 
 func main() {
 
-	var month string
+	var day string
 OutLoop:
 	for {
 		fmt.Print("чтобы получить список будних дней, следующих за указанным\n")
 		fmt.Print("Ведите сокращенно день недели:")
-		fmt.Scan(&month)
+		fmt.Scan(&day)
 
-		switch strings.ToLower(month) {
+		switch strings.ToLower(day) {
 		case "сб", "вс", "пн", "cуб", "воскр":
 			fmt.Println("понедельник")
 			fallthrough
